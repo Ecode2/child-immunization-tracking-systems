@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 8f0f5478ff73cc9538b7a499d7cb60ec6609f6dd hallelx2 <halleluyaholudele@gmail.com> 1717074211 +0100	commit (initial): created the helper files
+8f0f5478ff73cc9538b7a499d7cb60ec6609f6dd b5da11641b540c354492d035a8b6c3f83175ba15 hallelx2 <halleluyaholudele@gmail.com> 1717081787 +0100	commit: added the frontend functinoality and readme files
+b5da11641b540c354492d035a8b6c3f83175ba15 22a11e7b486567d42e160726ae069e17c9800fb4 hallelx2 <halleluyaholudele@gmail.com> 1717085838 +0100	commit: moved pipfile out
+22a11e7b486567d42e160726ae069e17c9800fb4 f3f08ff2adea164e0471dd40301edc04d62ee4a7 hallelx2 <halleluyaholudele@gmail.com> 1717086357 +0100	commit: made some changes
+f3f08ff2adea164e0471dd40301edc04d62ee4a7 4041e474c6330b9ecdaed4e72e1345cad46aca47 hallelx2 <halleluyaholudele@gmail.com> 1717731364 +0100	commit: created authentication using jwt, and added the frontend functionality needed
+4041e474c6330b9ecdaed4e72e1345cad46aca47 4041e474c6330b9ecdaed4e72e1345cad46aca47 hallelx2 <halleluyaholudele@gmail.com> 1717731583 +0100	checkout: moving from main to clean-branch
