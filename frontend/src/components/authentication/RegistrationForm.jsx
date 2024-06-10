@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Form, Button, Card, Spinner, Modal} from "react-bootstrap";
+import { Form, Button, Card, Spinner, Modal, InputGroup } from "react-bootstrap";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../../styles/RegistrationForm.css"; 
-
+import "../../styles/RegistrationForm.css";
 
 function RegistrationForm() {
     const navigate = useNavigate();
@@ -12,6 +12,7 @@ function RegistrationForm() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -121,16 +122,24 @@ function RegistrationForm() {
 
                         <Form.Group className="mb-3">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                value={form.password || ''}
-                                onChange={(e) => setForm({ ...form, password: e.target.value })}
-                                required
-                                type="password"
-                                placeholder="Password"
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please provide a valid password.
-                            </Form.Control.Feedback>
+                            <InputGroup>
+                                <Form.Control
+                                    value={form.password || ''}
+                                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                                    required
+                                    type={showPassword ? "text" : "password"} // Toggle input type
+                                    placeholder="Password"
+                                />
+                                <Button
+                                    variant="outline-secondary"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </Button>
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid password.
+                                </Form.Control.Feedback>
+                            </InputGroup>
                         </Form.Group>
 
                         <Form.Group className="mb-3">

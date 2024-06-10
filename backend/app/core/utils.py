@@ -1,20 +1,26 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from core.config import settings
+# from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
+# from core.config import settings
 
-def send_email(to_email: str, subject: str, body: str):
-    message = MIMEMultipart()
-    message["From"] = f"{settings.EMAIL_FROM_NAME} <{settings.EMAIL_FROM}>"
-    message["To"] = to_email
-    message["Subject"] = subject
+# conf = ConnectionConfig(
+#     MAIL_USERNAME=settings.MAIL_USERNAME,
+#     MAIL_PASSWORD=settings.MAIL_PASSWORD,
+#     MAIL_FROM=settings.MAIL_FROM,
+#     MAIL_PORT=settings.MAIL_PORT,
+#     MAIL_SERVER=settings.MAIL_SERVER,
+#     MAIL_TLS=True,
+#     MAIL_SSL=False,
+#     USE_CREDENTIALS=True,
+#     VALIDATE_CERTS=True
+# )
 
-    message.attach(MIMEText(body, "html"))
+# async def send_reset_password_email(email: str, token: str):
+#     reset_url = f"{settings.FRONTEND_URL}/reset-password?token={token}"
+#     message = MessageSchema(
+#         subject="Password Reset Request",
+#         recipients=[email],
+#         body=f"Please use the following link to reset your password: {reset_url}",
+#         subtype="html"
+#     )
 
-    try:
-        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
-            server.starttls()
-            server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
-            server.sendmail(settings.EMAIL_FROM, to_email, message.as_string())
-    except Exception as e:
-        print(f"Error sending email: {e}")
+#     fm = FastMail(conf)
+#     await fm.send_message(message)

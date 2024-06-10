@@ -45,3 +45,16 @@ def decode_token(token: str):
         return TokenData(email=email)
     except JWTError:
         return None
+    
+def create_reset_password_token(email: str):
+    expire = datetime.utcnow() + timedelta(hours=1)  # Token valid for 1 hour
+    to_encode = {"sub": email, "exp": expire}
+    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+    return encoded_jwt
+
+def verify_reset_password_token(token: str):
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        return payload.get("sub")
+    except jwt.JWTError:
+        return None

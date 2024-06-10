@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+
+.nav-link {
+    color: white;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: #0787ff;
+}
+
+.btn-outline-light {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: #ffc107;
+    color: #343a40;
+}
