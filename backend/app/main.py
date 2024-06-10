@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from api.v1.endpoints import auth, child_profiles, immunizations, notifications, schedules, milestones, reports
 
@@ -11,7 +12,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+@app.get("/", include_in_schema=True)
+def redirect_to_docs():
+    return RedirectResponse(url="/docs")
 
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
 app.include_router(child_profiles.router, prefix="/api/v1/child_profiles", tags=["Child Profiles"])
