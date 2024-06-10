@@ -1,4 +1,7 @@
 from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Settings(BaseSettings):
     DATABASE_URL: str
@@ -17,6 +20,6 @@ class Settings(BaseSettings):
     # FRONTEND_URL: str
 
     class Config:
-        env_file = "/home/halleluyah/Documents/child-immunization-tracking-system/backend/app/.env"
+        env_file = ".env"
 
 settings = Settings()
