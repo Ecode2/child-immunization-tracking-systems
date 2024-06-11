@@ -9,3 +9,4 @@ pydantic-settings
 pymongo
 jose
 python-jose
+bcrypt

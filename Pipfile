@@ -15,6 +15,7 @@ pydantic-settings = "*"
 pymongo = "*"
 jose = "*"
 python-jose = "*"
+bcrypt = "*"
 
 [dev-packages]
 pytest = "*"
