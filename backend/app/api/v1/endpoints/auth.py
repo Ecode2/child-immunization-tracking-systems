@@ -26,6 +26,7 @@ class Token(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str = "bearer"
+    first_name: str
 
 class PasswordResetRequest(BaseModel):
     email: EmailStr
@@ -64,7 +65,8 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return {
             "access_token": access_token, 
             "refresh_token": refresh_token, 
-            "token_type": "bearer"
+            "token_type": "bearer",
+            "first_name": user.get("first_name"),
             }
 
 async def get_current_user(token: str = Depends(oauth2_scheme), db=Depends(get_database)):
