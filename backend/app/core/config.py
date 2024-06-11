@@ -19,7 +19,4 @@ class Settings(BaseSettings):
     # MAIL_SSL: bool
     # FRONTEND_URL: str
 
-    class Config:
-        env_file = ".env"
-
 settings = Settings()
