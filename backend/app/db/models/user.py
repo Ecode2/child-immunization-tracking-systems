@@ -1,6 +1,7 @@
-from pydantic import BaseModel, EmailStr
-from typing import Optional, List
+from pydantic import BaseModel, BeforeValidator, EmailStr, Field
+from typing import Annotated, Optional, List
 from datetime import datetime
+from db.dependency import PyObjectId
 
 # Model to accept user input during registration
 class UserCreate(BaseModel):
@@ -13,6 +14,7 @@ class UserCreate(BaseModel):
 
 # Model to represent the user stored in the database
 class User(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)
     email: EmailStr
     hashed_password: str
     first_name: str

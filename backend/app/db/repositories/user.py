@@ -13,3 +13,6 @@ class UserRepository:
 
     async def get_user_by_id(self, user_id: str):
         return await self.database["users"].find_one({"_id": user_id})
+
+    async def update_user_children(self, user_id: str, child_list: list):
+        await self.database["users"].update_one({"_id": user_id}, {"$set": {"children": child_list}})

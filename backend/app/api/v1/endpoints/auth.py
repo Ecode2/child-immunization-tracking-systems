@@ -16,7 +16,7 @@ from datetime import datetime
 
 router = APIRouter()
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 
 class LoginRequest(BaseModel):
     username: EmailStr
